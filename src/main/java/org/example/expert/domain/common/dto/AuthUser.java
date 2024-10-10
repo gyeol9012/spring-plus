@@ -18,6 +18,10 @@ public class AuthUser {
     private final Collection<? extends GrantedAuthority> authorities;
 
     public AuthUser(Long id, String email, UserRole userRole, String nickname) {
+        if (userRole == null) {
+            throw new IllegalArgumentException("UserRole은 null일 수 없습니다.");
+        }
+
         this.id = id;
         this.email = email;
         this.userRole = userRole;

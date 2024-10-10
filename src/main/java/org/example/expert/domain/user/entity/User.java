@@ -5,7 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.expert.domain.common.dto.AuthUser;
 import org.example.expert.domain.common.entity.Timestamped;
+import org.example.expert.domain.todo.entity.Todo;
 import org.example.expert.domain.user.enums.UserRole;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -21,6 +25,10 @@ public class User extends Timestamped {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private String nickname;
+
+    @OneToMany(mappedBy = "user")
+    private final List<Todo> todo = new ArrayList<>();
+
 
     public User(String email, String password, UserRole userRole, String nickname) {
         this.email = email;

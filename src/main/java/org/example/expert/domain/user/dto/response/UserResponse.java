@@ -9,9 +9,11 @@ public class UserResponse {
     private final String email;
     private final String nickname;
 
+
     public UserResponse(Long id, String email, String nickname) {
         this.id = id;
         this.email = email;
         this.nickname = nickname;
+
     }
 }
